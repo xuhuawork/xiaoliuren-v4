@@ -47,7 +47,7 @@ const DivinationForm: React.FC<DivinationFormProps> = ({ onSubmit }) => {
   return (
     <Card className="w-full max-w-md mx-auto">
       <CardHeader>
-        <CardTitle className="text-center">序桦老师相信科学模拟器</CardTitle>
+        <CardTitle className="text-center">序桦老师小六壬模拟器</CardTitle>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
