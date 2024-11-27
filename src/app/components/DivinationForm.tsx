@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState } from 'react';
 import { DivinationType, DivinationMethod } from '../types';
 import { getTraditionalTimePeriod } from '../utils/divinationLogic';
@@ -47,7 +45,7 @@ const DivinationForm: React.FC<DivinationFormProps> = ({ onSubmit }) => {
   return (
     <Card className="w-full max-w-md mx-auto">
       <CardHeader>
-        <CardTitle className="text-center">序桦老师小六壬模拟器</CardTitle>
+        <CardTitle className="text-center">序桦老师相信科学模拟器</CardTitle>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -81,7 +79,7 @@ const DivinationForm: React.FC<DivinationFormProps> = ({ onSubmit }) => {
           {method === 'manual' ? (
             <div className="space-y-2">
               <Label>输入三个数字</Label>
-              <div className="flex space-x-2">
+              <div className="flex justify-between space-x-2">
                 {manualInput.map((num, index) => (
                   <Input
                     key={index}
@@ -95,12 +93,12 @@ const DivinationForm: React.FC<DivinationFormProps> = ({ onSubmit }) => {
                     min="1"
                     max="100"
                     required
-                    className="w-20"
+                    className="w-full"
                   />
                 ))}
               </div>
               <Button type="button" onClick={handleRandomNumbers} variant="outline" className="w-full">
-                随机数
+                随机取数
               </Button>
             </div>
           ) : (
@@ -139,3 +137,4 @@ const DivinationForm: React.FC<DivinationFormProps> = ({ onSubmit }) => {
 };
 
 export default DivinationForm;
+
