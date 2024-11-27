@@ -9,6 +9,8 @@ export interface Hexagram {
   direction: string;
   stage: string;
   timeFactor?: string;
+  aspect?: string;
+  position?: string;
 }
 
 export interface DivinationResult {

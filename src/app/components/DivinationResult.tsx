@@ -29,7 +29,7 @@ const getElementColor = (element: string) => {
 
 interface DivinationResultProps {
   result: ResultType;
-  isThinking: boolean;
+  isThinking?: boolean;
 }
 
 const DivinationResult: React.FC<DivinationResultProps> = ({ result, isThinking }) => {

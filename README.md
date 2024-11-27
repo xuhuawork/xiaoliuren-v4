@@ -16,4 +16,25 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 
 
+Git
 
+
+```
+git status
+```
+
+```
+git add
+```
+
+```
+git status
+```
+
+```
+git commit --message "add files"
+```
+
+```
+git push
+```
