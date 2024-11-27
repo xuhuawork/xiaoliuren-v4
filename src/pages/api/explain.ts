@@ -5,7 +5,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 const openai = new OpenAI(
     {
         // 若没有配置环境变量，请用百炼API Key将下行替换为：apiKey: "sk-xxx",
-        apiKey: "sk-626f89233315413fa5c39a66f2143d11",
+        apiKey: process.env.OPEN_AI_KEY,
         baseURL: "https://dashscope.aliyuncs.com/compatible-mode/v1"
     }
 );
