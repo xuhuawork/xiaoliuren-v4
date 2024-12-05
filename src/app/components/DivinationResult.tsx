@@ -29,7 +29,7 @@ const getElementColor = (element: string) => {
 
 interface DivinationResultProps {
   result: ResultType;
-  isThinking?: boolean;
+  isThinking: boolean;
 }
 
 const DivinationResult: React.FC<DivinationResultProps> = ({ result, isThinking }) => {
@@ -39,11 +39,10 @@ const DivinationResult: React.FC<DivinationResultProps> = ({ result, isThinking 
   const [isSimplified, setIsSimplified] = useState(false);
 
   useEffect(() => {
-    if (isThinking) {
-      setVisibleHexagrams(0);
-      setIsSimplified(false);
-      setExplanation(null);
-    } else {
+    setVisibleHexagrams(0);
+    setIsSimplified(false);
+    setExplanation(null);
+    if (!isThinking) {
       const timer = setInterval(() => {
         setVisibleHexagrams((prev) => {
           if (prev < result.hexagrams.length) {
@@ -52,11 +51,11 @@ const DivinationResult: React.FC<DivinationResultProps> = ({ result, isThinking 
           clearInterval(timer);
           return prev;
         });
-      }, 1500); // Show a new hexagram every 1.5 seconds
+      }, 1500);
 
       return () => clearInterval(timer);
     }
-  }, [result.hexagrams.length, isThinking]);
+  }, [result, isThinking]);
 
   const handleExplain = async () => {
     setIsExplaining(true);

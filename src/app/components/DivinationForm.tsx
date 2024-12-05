@@ -59,6 +59,8 @@ const DivinationForm: React.FC<DivinationFormProps> = ({ onSubmit }) => {
                 <SelectItem value="拍摄进展">拍摄进展</SelectItem>
                 <SelectItem value="比稿情况">比稿情况</SelectItem>
                 <SelectItem value="约会情况">约会情况</SelectItem>
+                <SelectItem value="能否交片">能否交片</SelectItem>
+                <SelectItem value="回款状态">回款状态</SelectItem>
               </SelectContent>
             </Select>
           </div>

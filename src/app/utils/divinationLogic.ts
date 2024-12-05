@@ -1,5 +1,6 @@
 import {DivinationMethod, Hexagram} from '../types';
-
+const MANUAL_ASPECTS = ['起因', '经过', '结果'];
+const TIME_ASPECTS = ['天时', '地利', '人和'];
 const hexagrams: Hexagram[] = [
     {
         name: '大安',
