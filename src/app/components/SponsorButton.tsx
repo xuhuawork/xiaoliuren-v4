@@ -1,60 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import Image from 'next/image'
 
 const SponsorButton: React.FC = () => {
-  const [amount, setAmount] = useState('');
-  const [isPaymentProcessing, setIsPaymentProcessing] = useState(false);
-
-  const handlePayment = async () => {
-    if (!amount || parseFloat(amount) <= 0) {
-      alert('请输入有效的赞助金额');
-      return;
-    }
-    
-    setIsPaymentProcessing(true);
-
-    try {
-      // 调用后端支付 API，生成支付请求
-      const response = await fetch('/api/payment', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ amount }),
-      });
-
-      if (!response.ok) {
-        throw new Error('支付请求失败');
-      }
-
-      const { paymentUrl } = await response.json();
-      // 在新的窗口中打开支付链接
-      window.open(paymentUrl, '_blank');
-
-      // 模拟支付成功（真实情况中，你可能需要处理支付回调）
-      setTimeout(() => {
-        setIsPaymentProcessing(false);
-        alert('感谢您的赞助！');
-      }, 2000);
-      
-    } catch (error) {
-      console.error('支付失败:', error);
-      alert('支付失败，请稍后重试');
-      setIsPaymentProcessing(false);
-    }
-  };
-
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -64,29 +20,31 @@ const SponsorButton: React.FC = () => {
         <DialogHeader>
           <DialogTitle>赞助序桦老师</DialogTitle>
           <DialogDescription>
-            您的支持是我们继续提供服务的动力。请选择赞助金额。
+            感谢您的支持！您的赞助将帮助我们提供更好的服务。
           </DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="amount" className="text-right">
-              金额
-            </Label>
-            <Input
-              id="amount"
-              type="number"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-              className="col-span-3"
-              placeholder="请输入赞助金额"
+        
+        <div className="flex flex-col items-center">
+          <div className="w-64 h-64 my-4">
+            <img
+              src="/wechat-qr.jpg"
+              alt="微信收款码"
+              className="w-full h-full object-contain"
             />
           </div>
+          <p className="text-sm text-gray-500 text-center">
+            请使用微信扫描二维码进行赞助
+          </p>
         </div>
-        <DialogFooter>
-          <Button onClick={handlePayment} disabled={isPaymentProcessing}>
-            {isPaymentProcessing ? '处理中...' : '使用微信支付'}
-          </Button>
-        </DialogFooter>
+
+        <div className="mt-4 text-center text-sm text-gray-500">
+          <p>赞助后可获得以下特权：</p>
+          <ul className="text-left list-disc list-inside mt-2">
+            <li>无限次数的占卜服务</li>
+            <li>更详细的解卦分析</li>
+            <li>优先的技术支持</li>
+          </ul>
+        </div>
       </DialogContent>
     </Dialog>
   );

@@ -7,8 +7,8 @@ export interface Hexagram {
   fortune: string;
   element: string;
   direction: string;
-  stage: string;
-  timeFactor?: string;
+  stage: string;        // 起因经过结果
+  timeFactor?: string;  // 天时地利人和
   aspect?: string;
   position?: string;
 }

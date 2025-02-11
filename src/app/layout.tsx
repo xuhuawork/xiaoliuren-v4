@@ -14,8 +14,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "序桦老师相信科学模拟器",
-  description: "序桦老师相信科学模拟器",
+  title: "遇事不决，相信科学",
+  description: "序桦老师整的小六壬模拟器",
 };
 
 export default function RootLayout({

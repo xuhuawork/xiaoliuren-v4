@@ -24,7 +24,7 @@ const DivinationForm: React.FC<DivinationFormProps> = ({ onSubmit }) => {
       if (manualInput.every(num => num !== '')) {
         onSubmit(type, method, manualInput.map(Number));
       } else {
-        alert('请输入三个数字');
+        alert('请闭眼，想三个数字');
       }
     } else {
       const dateTime = new Date(`${date}T${time}`);
@@ -45,7 +45,7 @@ const DivinationForm: React.FC<DivinationFormProps> = ({ onSubmit }) => {
   return (
     <Card className="w-full max-w-md mx-auto">
       <CardHeader>
-        <CardTitle className="text-center">序桦老师相信科学模拟器</CardTitle>
+        <CardTitle className="text-center">科学小六壬模拟 1.0</CardTitle>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -58,7 +58,7 @@ const DivinationForm: React.FC<DivinationFormProps> = ({ onSubmit }) => {
               <SelectContent>
                 <SelectItem value="拍摄进展">拍摄进展</SelectItem>
                 <SelectItem value="比稿情况">比稿情况</SelectItem>
-                <SelectItem value="约会情况">约会情况</SelectItem>
+                <SelectItem value="投资回报">投资回报</SelectItem>
                 <SelectItem value="能否交片">能否交片</SelectItem>
                 <SelectItem value="回款状态">回款状态</SelectItem>
               </SelectContent>
@@ -80,7 +80,7 @@ const DivinationForm: React.FC<DivinationFormProps> = ({ onSubmit }) => {
 
           {method === 'manual' ? (
             <div className="space-y-2">
-              <Label>输入三个数字</Label>
+              <Label>请闭眼，想三个数字</Label>
               <div className="flex justify-between space-x-2">
                 {manualInput.map((num, index) => (
                   <Input
